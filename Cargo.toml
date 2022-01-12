@@ -1,0 +1,31 @@
+[package]
+name = "symsyq"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dotenv = "0.15"
+
+[dependencies.songbird]
+git = "https://github.com/serenity-rs/songbird"
+features = ["builtin-queue","serenity-rustls", "gateway", "yt-dlp"]
+
+[dependencies.tokio]
+version = "1.0"
+features = ["macros", "rt-multi-thread"]
+
+[dependencies.poise]
+git = "https://github.com/kangalioo/poise"
+
+[dependencies.serenity]
+#package = "serenity"
+git = "https://github.com/serenity-rs/serenity"
+branch = "next"
+default-features = false
+features = ["builder", "cache", "client", "gateway", "model", "utils", "rustls_backend", "unstable_discord_api", "collector","voice"]
+
+[patch.crates-io.serenity]
+git = "https://github.com/serenity-rs/serenity"
+branch = "next"
