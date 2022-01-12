@@ -8,10 +8,6 @@ edition = "2021"
 [dependencies]
 dotenv = "0.15"
 
-[dependencies.songbird]
-git = "https://github.com/serenity-rs/songbird"
-features = ["builtin-queue","serenity-rustls", "gateway", "yt-dlp"]
-
 [dependencies.tokio]
 version = "1.0"
 features = ["macros", "rt-multi-thread"]
@@ -25,6 +21,12 @@ git = "https://github.com/serenity-rs/serenity"
 branch = "next"
 default-features = false
 features = ["builder", "cache", "client", "gateway", "model", "utils", "rustls_backend", "unstable_discord_api", "collector","voice"]
+
+[dependencies.songbird]
+git = "https://github.com/serenity-rs/songbird"
+branch = "next"
+features = ["builtin-queue","serenity-rustls", "gateway", "yt-dlp"]
+
 
 [patch.crates-io.serenity]
 git = "https://github.com/serenity-rs/serenity"
