@@ -17,8 +17,7 @@ git = "https://github.com/kangalioo/poise"
 
 [dependencies.serenity]
 #package = "serenity"
-git = "https://github.com/serenity-rs/serenity"
-branch = "next"
+version = "0.10.9"
 default-features = false
 features = ["builder", "cache", "client", "gateway", "model", "utils", "rustls_backend", "unstable_discord_api", "collector","voice"]
 
