@@ -1,4 +1,4 @@
-[package]
+[package]       
 name = "symsyq"
 version = "0.1.0"
 edition = "2021"
@@ -17,7 +17,8 @@ git = "https://github.com/kangalioo/poise"
 
 [dependencies.serenity]
 #package = "serenity"
-version = "0.10.9"
+git = "https://github.com/serenity-rs/serenity"
+branch = "next"
 default-features = false
 features = ["builder", "cache", "client", "gateway", "model", "utils", "rustls_backend", "unstable_discord_api", "collector","voice"]
 
@@ -27,3 +28,6 @@ branch = "next"
 features = ["builtin-queue","serenity-rustls", "gateway", "yt-dlp"]
 
 
+[patch.crates-io.serenity]
+git = "https://github.com/serenity-rs/serenity"
+branch = "next"
