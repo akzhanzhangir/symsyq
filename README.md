@@ -7,7 +7,7 @@ discord bot for playing music using slash commands
 Use the docker.
 
 ```bash
-docker pull ghcr.io/djakish/symsyq:main
+docker run -d --env-file .env ghcr.io/djakish/symsyq:main
 ```
 
 ## About
