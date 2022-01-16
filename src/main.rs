@@ -38,10 +38,17 @@ async fn main() {
         .user_data_setup(move |_ctx, _ready, _framework| {
             // This part of for registering the commands on the start of the bot
             Box::pin(async move {
+                let token = env::var("REGISTER").expect("Expected token for registartion");
+                if token == "false" {
+                    return Ok(());
+                }
                 let guild_id = env::var("GUILD_ID").expect("Expected guild ID");
                 let mut commands_builder = serenity::builder::CreateApplicationCommands::default();
-                let command_to_reg = register().create_as_slash_command().unwrap();
-                commands_builder.add_application_command(command_to_reg);
+                let commands = &_framework.options().commands;
+
+                for cmd in commands {
+                    commands_builder.add_application_command(cmd.create_as_slash_command().unwrap());
+                }
                 let commands_builder = serenity::json::Value::Array(commands_builder.0);
                 _ctx.http
                     .create_guild_application_command(
@@ -55,12 +62,4 @@ async fn main() {
         .run()
         .await
         .unwrap();
-}
-
-/// Register commands in guild
-#[poise::command(slash_command)]
-pub async fn register(ctx: Context<'_>) -> Result<(), Error> {
-    poise::builtins::register_application_commands(ctx,false).await?;
-
-    Ok(())
 }
